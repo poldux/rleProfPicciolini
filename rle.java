@@ -35,6 +35,54 @@ public class rle extends Application{
 		
 		bCalcola.setOnAction(e->calcolo());
 	}
+	 
+	public void calcolo() {
+		String m = tMatrice.getText();
+		String vetto[] = m.split(",");
+		int l = 0;
+		int lett = 1;
+		int riga = 0;
+		int bt=0;
+		int risu = 0;
+		String ris = "";
+		String l1;
+		String l3;
+		String l2;
+
+		for(int i=0;i<3;i++) {
+		for(int j=0;j<3;j++) {
+		Img[i][j] = vetto[l];
+		l++;
+		}
+		}
+
+
+		for(int i=0;i<3;i++) {
+		for(int j=0;j<2;j++) {
+		l1=Img[i][0];
+		l2=Img[i][1];
+		l3=Img[i][2];
+		if(!(l1).equals(l2)){
+		lett++;
+		}
+		if(!(l1).equals(l3)) {
+		lett++;
+		}
+		if(!(l2).equals(l3)) {
+		lett++;
+		}
+		riga=lett;
+		while (riga!=0) {
+		riga/=2;
+		bt++;
+		}
+
+		}
+		risu+=bt+(lett+24);
+		}
+
+		lRis.setText(risu+"");
+		}
 	
 	public static void main(String[] args) {
 		launch(args);
